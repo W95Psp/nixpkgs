@@ -17,6 +17,10 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   cargoHash = "sha256-Xk1T+1TDMs13y/1ghieiewy2ZwrHZD0U6iZw3n/DMKI=";
 
+  # Upstream tests expect the parquet-testing submodule, which is not shipped
+  # in the GitHub release archive used for packaging.
+  doCheck = false;
+
   meta = {
     description = "Peek inside Parquet files right from your terminal";
     homepage = "https://github.com/kaushiksrini/parqeye";
